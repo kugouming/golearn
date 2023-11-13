@@ -49,7 +49,7 @@ func main() {
 	// ctrl+c -> SIGINT kill -9 -> SIGKILL
 	signal.Notify(psignal, syscall.SIGINT, syscall.SIGKILL)
 
-	confBytes, err := ioutil.ReadFile(confile)
+	confBytes, err := ioutil.ReadFile(*confile)
 	if err != nil {
 		panic(fmt.Sprintf("Config file read fail, err:%+v", err))
 	}
@@ -62,10 +62,10 @@ func main() {
 
 	// 根据配置内容启动不同的客户端
 	if config.Server != nil {
-		go DoServer()
+		go DoServer(config.Server)
 	}
 	if config.Client != nil {
-		go DoClient()
+		go DoClient(config.Client)
 	}
 
 	<-psignal

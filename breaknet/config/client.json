@@ -1,12 +1,4 @@
 {
-    "server": {
-        "key": "hello",
-        "port": "10000",
-        "limit_port": [
-            9100,
-            9110
-        ]
-    },
     "client": {
         "key": "hello",
         "server": "127.0.0.1:10000",

@@ -1,0 +1,10 @@
+{
+    "server": {
+        "key": "hello",
+        "port": 10000,
+        "limit_port": [
+            9100,
+            9110
+        ]
+    }
+}

@@ -1,0 +1,17 @@
+type AdminUser {
+  id: ID!
+  name: String!
+  email: String!
+}
+
+extend type Query {
+  adminUser(id: ID, name: String): AdminUser
+  adminUsers: [AdminUser!]!
+}
+
+
+extend type Mutation {
+  createUser(name: String!, email: String!): AdminUser!
+  updateUser(id: ID!, name: String, email: String): AdminUser!
+  deleteUser(id: ID!): AdminUser!
+}

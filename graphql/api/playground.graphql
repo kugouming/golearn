@@ -1,0 +1,21 @@
+# 添加数据
+mutation createTodo {
+  createTodo(input:{text:"todo", userId:"1"}) {
+    user {
+      id
+    }
+    text
+    done
+  }
+}
+
+# 查询数据
+query findTodos {
+    todos {
+      text
+      done
+      user {
+        name
+      }
+    }
+}

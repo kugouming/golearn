@@ -1,0 +1,20 @@
+@contentTypeJson=application/json
+@contentTypeForm=application/x-www-form-urlencoded
+@hostname=http://localhost:8080
+
+### Create a new
+POST {{hostname}}/query
+Content-Type: {{contentTypeJson}}
+
+{
+    "query": "mutation createTodo {createTodo(input: { text: \"todo1111\", userId: \"1234\" }) { user {id}, text, done } }",
+    "operationName": "createTodo" 
+}
+
+### Query the content
+POST {{hostname}}/query
+Content-Type: {{contentTypeJson}}
+
+{
+    "query":"query findTodos{todos {id,text,done,user {id,name}}}"
+}
